@@ -1,0 +1,118 @@
+<section id="foodlog-section" class="px-8 py-8 bg-gray-50 min-h-screen" style="display: block;">
+        <div class="max-w-7xl mx-auto">
+          <!-- Page Header -->
+          <div class="bg-linear-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 mb-6 text-white">
+            <div class="flex items-center justify-between">
+              <div>
+                <h2 class="text-2xl font-bold mb-2">
+                  <i class="mr-2" data-fa-i2svg=""><svg class="svg-inline--fa fa-clipboard-list" data-prefix="fas" data-icon="clipboard-list" role="img" viewBox="0 0 384 512" aria-hidden="true" data-fa-i2svg=""><path fill="currentColor" d="M311.4 32l8.6 0c35.3 0 64 28.7 64 64l0 352c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 96C0 60.7 28.7 32 64 32l8.6 0C83.6 12.9 104.3 0 128 0L256 0c23.7 0 44.4 12.9 55.4 32zM248 112c13.3 0 24-10.7 24-24s-10.7-24-24-24L136 64c-13.3 0-24 10.7-24 24s10.7 24 24 24l112 0zM128 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm32 0c0 13.3 10.7 24 24 24l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-112 0c-13.3 0-24 10.7-24 24zm0 128c0 13.3 10.7 24 24 24l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-112 0c-13.3 0-24 10.7-24 24zM96 416a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"></path></svg></i>
+                  Daily Food Log
+                </h2>
+                <p class="opacity-90">
+                  Track and monitor your daily nutrition intake
+                </p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm opacity-80">Today</p>
+                <p class="text-xl font-bold" id="foodlog-date">
+                  Tuesday, Jan 14
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Today's Summary with Progress -->
+          <div id="foodlog-today-section" class="bg-white rounded-2xl p-6 mb-6 border-2 border-gray-200">
+            <h3 class="text-lg font-bold text-gray-900 mb-4">
+              <i class="mr-2 text-orange-500" data-fa-i2svg=""><svg class="svg-inline--fa fa-fire" data-prefix="fas" data-icon="fire" role="img" viewBox="0 0 448 512" aria-hidden="true" data-fa-i2svg=""><path fill="currentColor" d="M160.5-26.4c9.3-7.8 23-7.5 31.9 .9 12.3 11.6 23.3 24.4 33.9 37.4 13.5 16.5 29.7 38.3 45.3 64.2 5.2-6.8 10-12.8 14.2-17.9 1.1-1.3 2.2-2.7 3.3-4.1 7.9-9.8 17.7-22.1 30.8-22.1 13.4 0 22.8 11.9 30.8 22.1 1.3 1.7 2.6 3.3 3.9 4.8 10.3 12.4 24 30.3 37.7 52.4 27.2 43.9 55.6 106.4 55.6 176.6 0 123.7-100.3 224-224 224S0 411.7 0 288c0-91.1 41.1-170 80.5-225 19.9-27.7 39.7-49.9 54.6-65.1 8.2-8.4 16.5-16.7 25.5-24.2zM225.7 416c25.3 0 47.7-7 68.8-21 42.1-29.4 53.4-88.2 28.1-134.4-4.5-9-16-9.6-22.5-2l-25.2 29.3c-6.6 7.6-18.5 7.4-24.7-.5-17.3-22.1-49.1-62.4-65.3-83-5.4-6.9-15.2-8-21.5-1.9-18.3 17.8-51.5 56.8-51.5 104.3 0 68.6 50.6 109.2 113.7 109.2z"></path></svg></i>
+              Today's Nutrition
+            </h3>
+
+            <!-- Progress Bars -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <!-- Calories Progress -->
+              <div class="bg-emerald-50 rounded-xl p-4">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-sm font-semibold text-gray-700">Calories</span>
+                  <span class="text-sm text-gray-500">0 / 2000 kcal</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                  <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 0%"></div>
+                </div>
+              </div>
+              <!-- Protein Progress -->
+              <div class="bg-blue-50 rounded-xl p-4">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-sm font-semibold text-gray-700">Protein</span>
+                  <span class="text-sm text-gray-500">0 / 50 g</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                  <div class="bg-blue-500 h-2.5 rounded-full" style="width: 0%"></div>
+                </div>
+              </div>
+              <!-- Carbs Progress -->
+              <div class="bg-amber-50 rounded-xl p-4">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-sm font-semibold text-gray-700">Carbs</span>
+                  <span class="text-sm text-gray-500">0 / 250 g</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                  <div class="bg-amber-500 h-2.5 rounded-full" style="width: 0%"></div>
+                </div>
+              </div>
+              <!-- Fat Progress -->
+              <div class="bg-purple-50 rounded-xl p-4">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-sm font-semibold text-gray-700">Fat</span>
+                  <span class="text-sm text-gray-500">0 / 65 g</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                  <div class="bg-purple-500 h-2.5 rounded-full" style="width: 0%"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Logged Items -->
+            <div class="border-t border-gray-200 pt-4">
+              <div class="flex items-center justify-between mb-3">
+                <h4 class="text-sm font-semibold text-gray-700">
+                  Logged Items (0)
+                </h4>
+                <button id="clear-foodlog" class="text-red-500 hover:text-red-600 text-sm font-medium" style="display: none">
+                  <i class="mr-1" data-fa-i2svg=""><svg class="svg-inline--fa fa-trash" data-prefix="fas" data-icon="trash" role="img" viewBox="0 0 448 512" aria-hidden="true" data-fa-i2svg=""><path fill="currentColor" d="M136.7 5.9L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-8.7-26.1C306.9-7.2 294.7-16 280.9-16L167.1-16c-13.8 0-26 8.8-30.4 21.9zM416 144L32 144 53.1 467.1C54.7 492.4 75.7 512 101 512L347 512c25.3 0 46.3-19.6 47.9-44.9L416 144z"></path></svg></i>Clear All
+                </button>
+              </div>
+
+              <div id="logged-items-list" class="space-y-2">
+                <!-- Empty State -->
+                <div class="text-center py-8 text-gray-500">
+                  <i class="mb-3 text-4xl text-gray-300" data-fa-i2svg=""><svg class="svg-inline--fa fa-utensils" data-prefix="fas" data-icon="utensils" role="img" viewBox="0 0 512 512" aria-hidden="true" data-fa-i2svg=""><path fill="currentColor" d="M63.9 14.4C63.1 6.2 56.2 0 48 0s-15.1 6.2-16 14.3L17.9 149.7c-1.3 6-1.9 12.1-1.9 18.2 0 45.9 35.1 83.6 80 87.7L96 480c0 17.7 14.3 32 32 32s32-14.3 32-32l0-224.4c44.9-4.1 80-41.8 80-87.7 0-6.1-.6-12.2-1.9-18.2L223.9 14.3C223.1 6.2 216.2 0 208 0s-15.1 6.2-15.9 14.4L178.5 149.9c-.6 5.7-5.4 10.1-11.1 10.1-5.8 0-10.6-4.4-11.2-10.2L143.9 14.6C143.2 6.3 136.3 0 128 0s-15.2 6.3-15.9 14.6L99.8 149.8c-.5 5.8-5.4 10.2-11.2 10.2-5.8 0-10.6-4.4-11.1-10.1L63.9 14.4zM448 0C432 0 320 32 320 176l0 112c0 35.3 28.7 64 64 64l32 0 0 128c0 17.7 14.3 32 32 32s32-14.3 32-32l0-448c0-17.7-14.3-32-32-32z"></path></svg></i>
+                  <p class="font-medium">No meals logged today</p>
+                  <p class="text-sm">
+                    Add meals from the Meals page or scan products
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Weekly Overview -->
+          <div class="bg-white rounded-2xl p-6 mb-6 border-2 border-gray-200">
+            <h3 class="text-lg font-bold text-gray-900 mb-4">
+              <i class="mr-2 text-indigo-500" data-fa-i2svg=""><svg class="svg-inline--fa fa-calendar-week" data-prefix="fas" data-icon="calendar-week" role="img" viewBox="0 0 448 512" aria-hidden="true" data-fa-i2svg=""><path fill="currentColor" d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 32 0c35.3 0 64 28.7 64 64l0 288c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 128C0 92.7 28.7 64 64 64l32 0 0-32c0-17.7 14.3-32 32-32zm0 256c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l192 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-192 0z"></path></svg></i>
+              Weekly Overview
+            </h3>
+
+            <div id="weekly-chart" class="h-64 bg-gray-50 rounded-xl flex items-center justify-center">
+              <!-- Chart placeholder - JS will populate with Plotly -->
+              <div class="text-center text-gray-400">
+                <i class="mb-2 text-4xl" data-fa-i2svg=""><svg class="svg-inline--fa fa-chart-line" data-prefix="fas" data-icon="chart-line" role="img" viewBox="0 0 512 512" aria-hidden="true" data-fa-i2svg=""><path fill="currentColor" d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64L0 400c0 44.2 35.8 80 80 80l400 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 416c-8.8 0-16-7.2-16-16L64 64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7 262.6 153.4c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l73.4-73.4 57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"></path></svg></i>
+                <p>Weekly nutrition chart will appear here</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          
+        </div>
+      </section>
