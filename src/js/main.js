@@ -1257,10 +1257,10 @@ clearFoodlogBtn.addEventListener("click", function () {
       const key = getTodayKey();
       localStorage.removeItem(key);
       renderFoodLog();
-      renderWeeklyChart();
-
+      
     }
   });
+      renderWeeklyChart();
 });
 const removeButtons = document.querySelectorAll(".remove-foodlog-item");
 removeButtons.forEach(function (btn) {
