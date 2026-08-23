@@ -1503,6 +1503,7 @@ function logMealBtnF(btn) {
         timer: 1500,
       });
     });
+    renderWeeklyChart();
   });
 }
 
@@ -1586,6 +1587,7 @@ function addProductLogBtnF() {
         icon: "success",
         timer: 1500,
       });
+      renderWeeklyChart();
     });
   });
 }
