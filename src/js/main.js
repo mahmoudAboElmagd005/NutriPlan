@@ -1498,7 +1498,7 @@ function logMealBtnF(btn) {
       saveMealToLog(logEntry);
       renderFoodLog();
       logMealModal.remove();
-    renderWeeklyChart();
+      renderWeeklyChart();
       
 
       Swal.fire({
