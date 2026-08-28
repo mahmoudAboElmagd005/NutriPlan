@@ -3260,3 +3260,8 @@ select:focus-visible {
   inherits: false;
   initial-value: 1;
 }
+@media (min-width: 768px) {
+  .md\:flex-row {
+    flex-direction: row;
+  }
+}
