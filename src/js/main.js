@@ -1260,7 +1260,7 @@ clearFoodlogBtn.addEventListener("click", function () {
       renderWeeklyChart();
     }
   });
-      renderWeeklyChart();
+      
 });
 const removeButtons = document.querySelectorAll(".remove-foodlog-item");
 removeButtons.forEach(function (btn) {
@@ -1498,6 +1498,8 @@ function logMealBtnF(btn) {
       saveMealToLog(logEntry);
       renderFoodLog();
       logMealModal.remove();
+    renderWeeklyChart();
+      
 
       Swal.fire({
         title: "Meal Logged!",
@@ -1506,7 +1508,6 @@ function logMealBtnF(btn) {
         timer: 1500,
       });
     });
-    renderWeeklyChart();
   });
 }
 
