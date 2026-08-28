@@ -1257,7 +1257,7 @@ clearFoodlogBtn.addEventListener("click", function () {
       const key = getTodayKey();
       localStorage.removeItem(key);
       renderFoodLog();
-      
+      renderWeeklyChart();
     }
   });
       renderWeeklyChart();
