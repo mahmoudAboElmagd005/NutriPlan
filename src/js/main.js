@@ -1456,6 +1456,7 @@ function logMealBtnF(btn) {
     const cancelLogMeal = document.querySelector("#cancel-log-meal");
     cancelLogMeal.addEventListener("click", function () {
       logMealModal.remove();
+      renderWeeklyChart();
     });
 
     const increaseServings = document.querySelector("#increase-servings");
