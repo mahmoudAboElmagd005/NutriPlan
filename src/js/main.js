@@ -481,8 +481,24 @@ async function mealDetailsDisplay(mealId) {
   logMealBtnF(logMealBtn);
 }
 async function nutritionFactsDisplay(meal) {
+  const logMealBtn = document.querySelector("#log-meal-btn");
+
   const formattedIngredients = formatIngredientsForNutrition(meal.ingredients);
+
+  logMealBtn.className =
+    "flex items-center gap-2 px-6 py-3 bg-gray-400 text-white rounded-xl font-semibold cursor-not-allowed transition-all";
+
+  logMealBtn.innerHTML = `<i data-fa-i2svg=""><svg class="svg-inline--fa fa-spinner fa-spin" data-prefix="fas" data-icon="spinner" role="img" viewBox="0 0 512 512" aria-hidden="true" data-fa-i2svg=""><path fill="currentColor" d="M208 48a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm0 416a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM48 208a48 48 0 1 1 0 96 48 48 0 1 1 0-96zm368 48a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM75 369.1A48 48 0 1 1 142.9 437 48 48 0 1 1 75 369.1zM75 75A48 48 0 1 1 142.9 142.9 48 48 0 1 1 75 75zM437 369.1A48 48 0 1 1 369.1 437 48 48 0 1 1 437 369.1z"></path></svg></i>
+                        <span>Calculating...</span>
+`;
+
   await gitNutritionAPI(meal.name, formattedIngredients);
+  logMealBtn.className =
+    "flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all";
+  logMealBtn.innerHTML = `
+  <i data-fa-i2svg=""><svg class="svg-inline--fa fa-clipboard-list" data-prefix="fas" data-icon="clipboard-list" role="img" viewBox="0 0 384 512" aria-hidden="true" data-fa-i2svg=""><path fill="currentColor" d="M311.4 32l8.6 0c35.3 0 64 28.7 64 64l0 352c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 96C0 60.7 28.7 32 64 32l8.6 0C83.6 12.9 104.3 0 128 0L256 0c23.7 0 44.4 12.9 55.4 32zM248 112c13.3 0 24-10.7 24-24s-10.7-24-24-24L136 64c-13.3 0-24 10.7-24 24s10.7 24 24 24l112 0zM128 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm32 0c0 13.3 10.7 24 24 24l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-112 0c-13.3 0-24 10.7-24 24zm0 128c0 13.3 10.7 24 24 24l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-112 0c-13.3 0-24 10.7-24 24zM96 416a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"></path></svg></i>
+  <span>Log This Meal</span>`;
+
   const nutritionData = NutritionList;
   // server error placeholder
   let nutritionHTML = `<div id="products-empty" style=" text-align: center;">
@@ -579,13 +595,14 @@ async function nutritionFactsDisplay(meal) {
           </div>
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
-              <div class="w-3 h-3 rounded-full bg-pink-500"></div>
-              <span class="text-gray-700">Sugar</span>
+              <div class="w-3 h-3 rounded-full bg-red-500"></div>
+              <span class="text-gray-700">Saturated Fat
+</span>
             </div>
             <span class="font-bold text-gray-900">${perServing.saturatedFat ?? "N/A"}g</span>
           </div>
           <div class="w-full bg-gray-100 rounded-full h-2">
-            <div class="bg-pink-500 h-2 rounded-full" style="width: ${SaturatedFat}%"></div>
+            <div class="bg-red-500 h-2 rounded-full" style="width: ${SaturatedFat}%"></div>
           </div>
         </div>
 
@@ -1260,7 +1277,6 @@ clearFoodlogBtn.addEventListener("click", function () {
       renderWeeklyChart();
     }
   });
-      
 });
 const removeButtons = document.querySelectorAll(".remove-foodlog-item");
 removeButtons.forEach(function (btn) {
@@ -1374,6 +1390,7 @@ function renderFoodLog() {
   });
 }
 
+let mealServingsValue;
 function logMealBtnF(btn) {
   btn.addEventListener("click", function () {
     const mealId = btn.dataset.mealId;
@@ -1385,6 +1402,23 @@ function logMealBtnF(btn) {
         break;
       }
     }
+    // let nutritionTotal = NutritionList.data.totals;
+    // console.log(nutritionTotal);
+
+    // let calories = nutritionTotal.calories;
+    // let protein = nutritionTotal.protein;
+    // let fat = nutritionTotal.fat;
+    // let carbs = nutritionTotal.carbs;
+    // console.log(calories);
+    // console.log(fat);
+    // console.log(carbs);
+    // console.log(protein);
+
+    // ------------------------------------------------
+    const nutritionData = NutritionList;
+    const perServing = nutritionData.data.perServing;
+    const totals = nutritionData.data.totals;
+    // ------------------------------------------------
 
     if (!meal) {
       console.log("meal not found");
@@ -1422,19 +1456,19 @@ function logMealBtnF(btn) {
                       <p class="text-sm text-gray-600 mb-2">Estimated nutrition per serving:</p>
                       <div class="grid grid-cols-4 gap-2 text-center">
                           <div>
-                              <p class="text-lg font-bold text-emerald-600" id="modal-calories">175</p>
+                              <p class="text-lg font-bold text-emerald-600" id="modal-calories">${perServing.calories}</p>
                               <p class="text-xs text-gray-500">Calories</p>
                           </div>
                           <div>
-                              <p class="text-lg font-bold text-blue-600" id="modal-protein">0g</p>
+                              <p class="text-lg font-bold text-blue-600" id="modal-protein">${perServing.protein}g</p>
                               <p class="text-xs text-gray-500">Protein</p>
                           </div>
                           <div>
-                              <p class="text-lg font-bold text-amber-600" id="modal-carbs">0g</p>
+                              <p class="text-lg font-bold text-amber-600" id="modal-carbs">${perServing.carbs}g</p>
                               <p class="text-xs text-gray-500">Carbs</p>
                           </div>
                           <div>
-                              <p class="text-lg font-bold text-purple-600" id="modal-fat">0g</p>
+                              <p class="text-lg font-bold text-purple-600" id="modal-fat">${perServing.fat}g</p>
                               <p class="text-xs text-gray-500">Fat</p>
                           </div>
                       </div>
@@ -1456,13 +1490,12 @@ function logMealBtnF(btn) {
     const cancelLogMeal = document.querySelector("#cancel-log-meal");
     cancelLogMeal.addEventListener("click", function () {
       logMealModal.remove();
-      renderWeeklyChart();
     });
 
     const increaseServings = document.querySelector("#increase-servings");
     const decreaseServings = document.querySelector("#decrease-servings");
     const mealServings = document.querySelector("#meal-servings");
-    let mealServingsValue = Number(mealServings.value);
+    mealServingsValue = Number(mealServings.value);
     increaseServings.addEventListener("click", function () {
       mealServingsValue += 0.5;
       mealServings.value = mealServingsValue;
@@ -1499,7 +1532,6 @@ function logMealBtnF(btn) {
       renderFoodLog();
       logMealModal.remove();
       renderWeeklyChart();
-      
 
       Swal.fire({
         title: "Meal Logged!",
