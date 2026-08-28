@@ -1538,6 +1538,7 @@ function logMealBtnF(btn) {
         html: `${meal.name} (${mealServingsValue} serving) has been added to your daily log.<br><span style="color:#059669; font-weight:bold;">+${logEntry.calories} calories</span>`,
         icon: "success",
         timer: 1500,
+        showConfirmButton:false
       });
     });
   });
