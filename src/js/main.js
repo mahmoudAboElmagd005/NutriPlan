@@ -1084,8 +1084,8 @@ function productModal() {
                   
           <div class="p-6">
               <!-- Header -->
-              <div class="flex items-start gap-6 mb-6">
-                  <div class="w-32 h-32 bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden flex-shrink-0">
+              <div id="C" class="md:flex-row flex-col flex items-start gap-6 mb-6 relative">
+                  <div class="w-32 h-32 bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden flex-shrink-0 mb-4 md:mb-0">
                           <img src="${image}" alt="=${name}" class="w-full h-full object-contain">
                   </div>
                   <div class="flex-1">
@@ -1118,7 +1118,7 @@ function productModal() {
                               </div>
                       </div>
                   </div>
-                  <button class="close-product-modal text-gray-400 hover:text-gray-600">
+                  <button class="close-product-modal text-gray-400 hover:text-gray-600 absolute top-0 right-0 md:static">
                       <i class="text-2xl fa-solid fa-xmark"></i>
                   </button>
               </div>
