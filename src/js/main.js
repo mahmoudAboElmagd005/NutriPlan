@@ -1528,7 +1528,7 @@ function renderWeeklyChart() {
     const dayNumber = date.getDate();
     const isToday = i === 0;
 
-    daysHTML += `<div class="text-center ${isToday ? "bg-indigo-100 rounded-xl" : ""}">
+    daysHTML += `<div class="text-center py-3 ${isToday ? "bg-indigo-100 rounded-xl" : ""}">
         <p class="text-xs text-gray-500 mb-1">${dayName}</p>
         <p class="text-sm font-medium text-gray-900">${dayNumber}</p>
         <div class="mt-2 ${totalCalories > 0 ? "text-emerald-600" : "text-gray-300"}">
